@@ -5,9 +5,13 @@ function Search(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    let query = textInput.current.value;
+    let normalizedQuery = query.trim();
+
     Router.push({
       pathname: '/',
-      query: { q: textInput.current.value }
+      query: { q: normalizedQuery }
     });
   }
 
