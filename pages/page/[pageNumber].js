@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router';
-import Search from '../../components/search';
+import Header from '../../components/header';
 import Page from '../../components/page';
 import data from '../../static/chat.json';
 
@@ -22,7 +22,7 @@ function PageDetail() {
         <title>Página {result.page} | Las 889 páginas de Telegram entre Rosselló Nevares y sus allegados</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Search query={query} />
+      <Header query={query} />
       <div className="flex flex-col">
         <Page text={result.text} image={result.image} number={result.page} />
       </div>
