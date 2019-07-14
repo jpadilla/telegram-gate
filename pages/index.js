@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import Header from '../components/header';
 import Page from '../components/page';
 import data from '../static/chat.json';
@@ -37,7 +37,11 @@ function Home(props) {
 Home.getInitialProps = async function(context) {
   let query = context.query.q;
   if (query) {
-    let results = data.filter((result) => result.text.includes(query));
+    let normalizedQuery = query.toLowerCase();
+    let results = data.filter((result) =>
+      result.text.includes(normalizedQuery)
+    );
+
     return { results, query };
   }
 
