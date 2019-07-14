@@ -15,7 +15,7 @@ function Page(props) {
         display: 'block',
         maxWidth: '672px',
         maxHeight: '881px',
-        minWidth: '488px',
+        minWidth: '359px',
         minHeight: '652px'
       }}
     >
