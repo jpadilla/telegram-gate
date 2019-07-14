@@ -1,0 +1,22 @@
+{
+  "name": "telegram-gate",
+  "version": "1.0.0",
+  "description": "Las 889 páginas de Telegram entre Rosselló Nevares y sus allegados",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "build-export": "next build && next export"
+  },
+  "author": "José Padilla <hello@jpadilla.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "autoprefixer": "^9.6.1",
+    "next": "^9.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-lazy-load": "^3.0.13",
+    "tailwindcss": "^1.0.5"
+  }
+}
