@@ -9,16 +9,7 @@ function Page(props) {
   }
 
   return (
-    <div
-      className="border border-g ray-300 p-4 mb-4"
-      style={{
-        display: 'block',
-        maxWidth: '672px',
-        maxHeight: '881px',
-        minWidth: '359px',
-        minHeight: '652px'
-      }}
-    >
+    <div className="border border-gray-200 bg-gray-200 p-2 mb-4 page-container relative">
       <Link href="/page/[pageNumber]" as={linkAs}>
         <a className="block">
           <LazyLoad debounce={false} offsetVertical={500}>
@@ -31,7 +22,7 @@ function Page(props) {
           </LazyLoad>
         </a>
       </Link>
-      <span className="block text-right text-sm text-gray-500">
+      <span className="block text-right text-sm text-gray-500 absolute bottom-0 right-0 p-4">
         {props.number}
       </span>
     </div>

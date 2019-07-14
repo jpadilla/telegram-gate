@@ -38,7 +38,7 @@ function Header(props) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div
-        className="py-4 mb-4 border-b border-gray-100 sm:sticky static top-0 bg-white"
+        className="py-4 mb-4 border-b border-gray-100 sm:sticky static top-0 bg-white z-10"
         style={{ boxShadow: '0 4px 3px -2px rgba(0, 0, 0, 0.1)' }}
       >
         <h1 className="text-xl text-gray-900">

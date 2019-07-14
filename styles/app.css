@@ -3,3 +3,17 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.page-container {
+  display: block;
+  max-width: 672px;
+  max-height: 881px;
+  min-width: 359px;
+  min-height: 460px;
+}
+
+@media (min-width: 640px) {
+  .page-container {
+    min-height: 652px;
+  }
+}
