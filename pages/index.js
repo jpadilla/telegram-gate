@@ -9,14 +9,14 @@ function Home(props) {
       <Header query={props.query} />
       <div className="flex flex-col">
         {props.query && props.results.length > 0 && (
-          <p className="mb-4 text-gray-600">
-            Se encontraron {props.results.length} página(s).
+          <p className="p-4 mb-4 bg-green-500 text-white font-medium">
+            Se encontraron {props.results.length} página(s) para el término "{props.query}".
           </p>
         )}
 
         {props.query && props.results.length === 0 && (
-          <p className="mb-4 text-gray-600">
-            No se encontraron resultados para la búsqueda.
+          <p className="p-4 mb-4 bg-green-500 text-white font-medium">
+            No se encontraron resultados para el término "{props.query}".
           </p>
         )}
 
