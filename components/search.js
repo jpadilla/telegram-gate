@@ -12,7 +12,7 @@ function Search(props) {
   }
 
   return (
-    <form className="mb-4" method="GET" onSubmit={handleSubmit}>
+    <form method="GET" onSubmit={handleSubmit}>
       <div className="flex items-center border-b border-b-2 border-blue-500 py-2">
         <input
           name="q"

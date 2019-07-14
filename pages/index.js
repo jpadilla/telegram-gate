@@ -6,10 +6,6 @@ import data from '../static/chat.json';
 function Home(props) {
   return (
     <>
-      <Head>
-        <title>Las 889 páginas de Telegram entre Rosselló Nevares y sus allegados</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
       <Header query={props.query} />
       <div className="flex flex-col">
         {props.query && props.results.length > 0 && (
