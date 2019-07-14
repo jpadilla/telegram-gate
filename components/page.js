@@ -24,6 +24,8 @@ function Page(props) {
           <LazyLoad debounce={false} offsetVertical={500}>
             <img
               className="block max-w-full h-auto"
+              alt={props.text}
+              title={props.text}
               src={`https://telegram-gate.s3.amazonaws.com/images/${props.image}`}
             />
           </LazyLoad>
