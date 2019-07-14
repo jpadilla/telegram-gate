@@ -26,7 +26,7 @@ function Page(props) {
               className="block max-w-full h-auto"
               alt={props.text}
               title={props.text}
-              src={`https://telegram-gate.s3.amazonaws.com/images/${props.image}`}
+              src={`https://d355efj0j563i.cloudfront.net/images/${props.image}`}
             />
           </LazyLoad>
         </a>
