@@ -61,6 +61,13 @@ function Header(props) {
           Desarrollado por{' '}
           <a className="underline" href="https://twitter.com/jpadilla_">
             José Padilla
+          </a>.{' '}
+          Código abierto en{' '}
+          <a
+            className="underline"
+            href="https://github.com/jpadilla/telegram-gate"
+          >
+            GitHub
           </a>
         </h4>
 
