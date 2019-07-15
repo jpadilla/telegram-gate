@@ -10,6 +10,13 @@ const SHARE_IMAGE_URL = `${URL}/static/share.png`;
 
 function Header(props) {
   let headTitle = TITLE;
+  let headerStyle = {};
+  let headerStickyClassNames = '';
+
+  if (props.sticky) {
+    headerStyle.boxShadow = '0 4px 3px -2px rgba(0, 0, 0, 0.1)';
+    headerStickyClassNames = 'sm:sticky static';
+  }
 
   if (props.headTitle) {
     headTitle = `${props.headTitle} | ${TITLE}`;
@@ -38,8 +45,8 @@ function Header(props) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div
-        className="py-4 mb-4 border-b border-gray-100 sm:sticky static top-0 bg-white z-10"
-        style={{ boxShadow: '0 4px 3px -2px rgba(0, 0, 0, 0.1)' }}
+        className={`py-4 mb-4 border-b border-gray-100 top-0 bg-white z-10 ${headerStickyClassNames}`}
+        style={headerStyle}
       >
         <h1 className="text-xl text-gray-900">
           <Link href="/index" as="/">
@@ -61,8 +68,8 @@ function Header(props) {
           Desarrollado por{' '}
           <a className="underline" href="https://twitter.com/jpadilla_">
             José Padilla
-          </a>.{' '}
-          Código abierto en{' '}
+          </a>
+          . Código abierto en{' '}
           <a
             className="underline"
             href="https://github.com/jpadilla/telegram-gate"

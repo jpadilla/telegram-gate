@@ -6,7 +6,7 @@ import data from '../static/chat.json';
 function Home(props) {
   return (
     <>
-      <Header query={props.query} />
+      <Header query={props.query} sticky={true} />
       <div className="flex flex-col">
         {props.query && props.results.length > 0 && (
           <p className="p-4 mb-4 bg-green-500 text-green-800 font-medium">
