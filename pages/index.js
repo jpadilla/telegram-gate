@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from '../components/header';
 import Page from '../components/page';
 import data from '../static/chat.json';
+import unidecode from 'unidecode';
 
 function Home(props) {
   return (
@@ -39,7 +40,7 @@ function Home(props) {
 Home.getInitialProps = async function(context) {
   let query = context.query.q;
   if (query) {
-    let normalizedQuery = query.toLowerCase();
+    let normalizedQuery = unidecode(query.toLowerCase());
     let results = data.filter((result) =>
       result.text.includes(normalizedQuery)
     );
