@@ -2,20 +2,20 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Search from './search';
 
+const URL = 'https://telegram-gate.jpadilla.com';
 const SHARE_IMAGE_URL = `${URL}/static/share.png`;
-
 const SOURCES = {
   original: {
     title: 'El chat de Telegram',
     description:
       'Las 889 páginas de Telegram entre Rosselló Nevares y sus allegados',
-    url: 'https://telegram-gate.jpadilla.com'
+    url: URL
   },
   otro: {
     title: 'El otro chat de Telegram',
     description:
       'Las 97 páginas de Telegram entre Rosselló Nevares y sus allegados',
-    url: 'https://telegram-gate.jpadilla.com/el-otro'
+    url: `${URL}/el-otro`
   }
 };
 
