@@ -34,15 +34,9 @@ function Header(props) {
     headTitle = `${props.headTitle} | ${source.title}`;
   }
 
-  let linkAs =
-    props.source === 'otro'
-      ? `/el-otro`
-      : `/`;
+  let linkAs = props.source === 'otro' ? `/el-otro` : `/`;
 
-  let linkHref =
-    props.source === 'otro'
-      ? `/el-otro`
-      : `/index`;
+  let linkHref = props.source === 'otro' ? `/el-otro` : `/index`;
 
   return (
     <>
@@ -66,6 +60,22 @@ function Header(props) {
 
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+
+      {props.source !== 'otro' ? (
+        <div className="mt-2">
+          <Link href="/el-otro" as="/el-otro">
+            <a className="font-bold">
+              <span className="font-black">Nuevo!</span>{' '}
+              <span className="underline">
+                Ahora puedes buscar en las 97 páginas más recientes...
+              </span>
+            </a>
+          </Link>
+        </div>
+      ) : (
+        ''
+      )}
+
       <div
         className={`py-4 mb-4 border-b border-gray-100 top-0 bg-white z-10 ${headerStickyClassNames}`}
         style={headerStyle}
@@ -79,12 +89,12 @@ function Header(props) {
         <h3 className="text-sm text-gray-600">
           {props.source === 'otro' ? (
             <>
-              Documento original compartido por {' '}
+              Documento original compartido por{' '}
               <a
                 className="underline"
                 href="http://enblancoynegromedia.blogspot.com/2019/07/otro-chat-de-telegramgate.html"
               >
-                En Blanco y  Negro con Sandra
+                En Blanco y Negro con Sandra
               </a>
               .
             </>
