@@ -2,7 +2,15 @@ import Link from 'next/link';
 import LazyLoad from 'react-lazy-load';
 
 function Page(props) {
-  let linkAs = `/page/${props.number}`;
+  let linkAs =
+    props.source === 'otro'
+      ? `/el-otro/page/${props.number}`
+      : `/page/${props.number}`;
+
+  let linkHref =
+    props.source === 'otro'
+      ? `/el-otro/page/[pageNumber]`
+      : `/page/[pageNumber]`;
 
   if (props.query) {
     linkAs = `${linkAs}?q=${props.query}`;
@@ -10,7 +18,7 @@ function Page(props) {
 
   return (
     <div className="border border-gray-200 bg-gray-200 p-2 mb-4 page-container relative">
-      <Link href="/page/[pageNumber]" as={linkAs}>
+      <Link href={linkHref} as={linkAs}>
         <a className="block">
           <LazyLoad debounce={false} offsetVertical={500}>
             <img

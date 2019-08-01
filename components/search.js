@@ -10,7 +10,7 @@ function Search(props) {
     let normalizedQuery = query.trim();
 
     Router.push({
-      pathname: '/',
+      pathname: props.source === 'otro' ? '/el-otro' : '/',
       query: { q: normalizedQuery }
     });
   }
