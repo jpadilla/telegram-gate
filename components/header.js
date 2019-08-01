@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Search from './search';
-import { loadGetInitialProps } from 'next-server/dist/lib/utils';
 
 const SHARE_IMAGE_URL = `${URL}/static/share.png`;
 
