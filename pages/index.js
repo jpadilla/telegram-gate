@@ -5,6 +5,9 @@ import data from '../static/chat.json';
 import telegramGateIndex from '../static/telegram-gate-index.json';
 import unidecode from 'unidecode';
 import lunr from 'lunr'
+import stemmerSupport from 'lunr-languages/lunr.stemmer.support.js';
+import multi from 'lunr-languages/lunr.multi'
+import es from 'lunr-languages/lunr.es';
 
 function Home(props) {
   return (
@@ -41,7 +44,10 @@ function Home(props) {
 
 Home.getInitialProps = async function(context) {
   let query = context.query.q;
-
+  stemmerSupport(lunr)
+  multi(lunr)
+  es(lunr)
+  lunr.multiLanguage('en', 'es');
   if (query) {
     const normalizedQuery = unidecode(query.toLowerCase());
 
