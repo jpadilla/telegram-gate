@@ -14,8 +14,8 @@ const telegramGateIndex = lunr(function() {
 });
 
 const elOtroIndex = lunr(function() {
-    this.ref = 'page';
-    this.field = 'text';
+    this.ref('page');
+    this.field('text');
 
     elOtro.forEach(message => this.add(message), this);
 });
