@@ -2,12 +2,11 @@ import Head from 'next/head';
 import Header from '../components/header';
 import Page from '../components/page';
 import data from '../static/chat-otro.json';
-import lunr from 'lunr';
 import elOtroIndex from '../static/el-otro-index.json';
 import unidecode from 'unidecode';
-import stemmerSupport from 'lunr-languages/lunr.stemmer.support.js';
-import multi from 'lunr-languages/lunr.multi'
-import es from 'lunr-languages/lunr.es';
+import lunr from '../libs/setupLunr';
+
+const idx = lunr.Index.load(elOtroIndex);
 
 function Home(props) {
   return (
@@ -45,16 +44,12 @@ function Home(props) {
 
 Home.getInitialProps = async function(context) {
   let query = context.query.q;
-  // set up multi language support
-  stemmerSupport(lunr);
-  multi(lunr);
-  es(lunr);
-  lunr.multiLanguage('en', 'es');
   
   if (query) {
     const normalizedQuery = unidecode(query.toLowerCase());
-    const idx = lunr.Index.load(elOtroIndex);
     const results = idx.search(normalizedQuery);
+
+    // Convert all references to numbers. These are used to filter the documents in data.
     const refs = results.map(result => parseInt(result.ref));
 
     return { 

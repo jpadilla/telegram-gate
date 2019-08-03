@@ -4,10 +4,9 @@ import Page from '../components/page';
 import data from '../static/chat.json';
 import telegramGateIndex from '../static/telegram-gate-index.json';
 import unidecode from 'unidecode';
-import lunr from 'lunr'
-import stemmerSupport from 'lunr-languages/lunr.stemmer.support.js';
-import multi from 'lunr-languages/lunr.multi'
-import es from 'lunr-languages/lunr.es';
+import lunr from '../libs/setupLunr';
+
+const idx = lunr.Index.load(telegramGateIndex);
 
 function Home(props) {
   return (
@@ -45,17 +44,8 @@ function Home(props) {
 Home.getInitialProps = async function(context) {
   let query = context.query.q;
 
-  // set up multi language support
-  stemmerSupport(lunr);
-  multi(lunr);
-  es(lunr);
-  lunr.multiLanguage('en', 'es');
-
   if (query) {
     const normalizedQuery = unidecode(query.toLowerCase());
-
-    // Load preconstructed index
-    const idx = lunr.Index.load(telegramGateIndex);
     const results = idx.search(normalizedQuery);
 
     // Convert all references to numbers. These are used to filter the documents in data.
