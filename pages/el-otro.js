@@ -2,6 +2,11 @@ import Head from 'next/head';
 import Header from '../components/header';
 import Page from '../components/page';
 import data from '../static/chat-otro.json';
+import elOtroIndex from '../static/el-otro-index.json';
+import unidecode from 'unidecode';
+import lunr from '../libs/setupLunr';
+
+const idx = lunr.Index.load(elOtroIndex);
 
 function Home(props) {
   return (
@@ -39,13 +44,18 @@ function Home(props) {
 
 Home.getInitialProps = async function(context) {
   let query = context.query.q;
+  
   if (query) {
-    let normalizedQuery = query.toLowerCase();
-    let results = data.filter((result) =>
-      result.text.includes(normalizedQuery)
-    );
+    const normalizedQuery = unidecode(query.toLowerCase());
+    const results = idx.search(normalizedQuery);
 
-    return { results, query };
+    // Convert all references to numbers. These are used to filter the documents in data.
+    const refs = results.map(result => parseInt(result.ref));
+
+    return { 
+      results: data.filter(result => refs.includes(result.page)), 
+      query
+    };
   }
 
   return { results: data, query: '' };
