@@ -6,13 +6,15 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "build-export": "next build && next export"
+    "build-export": "next build && next export",
+    "create-indexes": "node ./scripts/creater-lunr-index.js"
   },
   "author": "José Padilla <hello@jpadilla.com>",
   "license": "MIT",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "autoprefixer": "^9.6.1",
+    "lunr": "^2.3.6",
     "next": "^9.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
