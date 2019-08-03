@@ -5,6 +5,9 @@ import data from '../static/chat-otro.json';
 import lunr from 'lunr';
 import elOtroIndex from '../static/el-otro-index.json';
 import unidecode from 'unidecode';
+import stemmerSupport from 'lunr-languages/lunr.stemmer.support.js';
+import multi from 'lunr-languages/lunr.multi'
+import es from 'lunr-languages/lunr.es';
 
 function Home(props) {
   return (
@@ -42,6 +45,12 @@ function Home(props) {
 
 Home.getInitialProps = async function(context) {
   let query = context.query.q;
+  // set up multi language support
+  stemmerSupport(lunr);
+  multi(lunr);
+  es(lunr);
+  lunr.multiLanguage('en', 'es');
+  
   if (query) {
     const normalizedQuery = unidecode(query.toLowerCase());
     const idx = lunr.Index.load(elOtroIndex);

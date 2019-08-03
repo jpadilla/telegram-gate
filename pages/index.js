@@ -44,16 +44,18 @@ function Home(props) {
 
 Home.getInitialProps = async function(context) {
   let query = context.query.q;
-  stemmerSupport(lunr)
-  multi(lunr)
-  es(lunr)
+
+  // set up multi language support
+  stemmerSupport(lunr);
+  multi(lunr);
+  es(lunr);
   lunr.multiLanguage('en', 'es');
+
   if (query) {
     const normalizedQuery = unidecode(query.toLowerCase());
 
     // Load preconstructed index
     const idx = lunr.Index.load(telegramGateIndex);
-
     const results = idx.search(normalizedQuery);
 
     // Convert all references to numbers. These are used to filter the documents in data.
