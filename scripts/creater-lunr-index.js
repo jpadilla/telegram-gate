@@ -12,6 +12,7 @@ const staticPath = path.join(path.dirname(__dirname), 'static');
 const telegramGateIndex = lunr(function() {
     this.ref('page');
     this.field('text');
+    this.metadataWhitelist = ['position']  
     this.use(lunr.multiLanguage('en', 'es'));
 
     telegramGate.forEach(message => this.add(message), this);
@@ -20,6 +21,7 @@ const telegramGateIndex = lunr(function() {
 const elOtroIndex = lunr(function() {
     this.ref('page');
     this.field('text');
+    this.metadataWhitelist = ['position']
     this.use(lunr.multiLanguage('en', 'es'));
 
     elOtro.forEach(message => this.add(message), this);

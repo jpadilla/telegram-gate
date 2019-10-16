@@ -48,6 +48,7 @@ Home.getInitialProps = async function(context) {
     const normalizedQuery = unidecode(query.toLowerCase());
     const results = idx.search(normalizedQuery);
 
+    console.log(JSON.stringify(results));
     // Convert all references to numbers. These are used to filter the documents in data.
     const refs = results.map(result => parseInt(result.ref));
 
